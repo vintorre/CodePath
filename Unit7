@@ -1,6 +1,26 @@
+# Project 7 - WordPress Pen Testing
+
+Time spent: 10 hours spent in total
+
+> Objective: Find, analyze, recreate, and document 3 affecting an old version of WordPress
+
+## Pen Testing Report
+
+
 Persistant Cross Site Scripting: 
 In this attack you can set up a vulnerability through the comment box of WP. Using the injected javascript the attacker can have accesss to anything the administrator has access to, as well as changing their passwords. You must set up a wordpress page, I just used the example page provided with a comment box. After you insert the comment "<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  AAAAAAAAAAAA...[64 kb]..AAA'></a>" and the comment is viewed you have access to the administrator account. 
 CVE Identifier: 2015-3440
 Affected versions: WordPress 4.2, 4.1.2, 4.1.1, 3.9.3. 
 Links: N/A
-ScreenCap: 
+
+Authenticated SQL injection
+In this attack we are accessing wpdb::prepare() and are passing an array in order to pass additional items following it. This will allow us to SQL inject and gain access to user passwords. After passing the array we can pass a simple SQL injection in order to view all passwords. This was done on a website I set up in order to test the exploit. 
+CWE -89
+Affected versions: Any version prior to 4.81
+Links: N/A
+
+Email Address Disclosure via wp-mail.php
+In this attack we are able to view the senders email address from wp-mail. In order to do this I used the same website as the first vulnerability. This one asks for an email in the form submission, after that I am able to go in as administrator, view the comment, access wp-mail.php and view the customers email address. 
+CWE 200
+Affected versions: Wordpress 5.86 - 6.02
+Links: N/A
