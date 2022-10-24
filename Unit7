@@ -23,4 +23,4 @@ Email Address Disclosure via wp-mail.php
 In this attack we are able to view the senders email address from wp-mail. In order to do this I used the same website as the first vulnerability. This one asks for an email in the form submission, after that I am able to go in as administrator, view the comment, access wp-mail.php and view the customers email address. 
 CWE 200
 Affected versions: Wordpress 5.86 - 6.02
-Links: N/A
+Links: https://github.com/WordPress/wordpress-develop/commit/5fcdee1b4d72f1150b7b762ef5fb39ab288c8d44
